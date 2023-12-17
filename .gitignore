@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/bitfinex.p2p/.vs/bitfinex.p2p
+/bitfinex.p2p/Client1/bin/Debug/net6.0
+/bitfinex.p2p/Client1/obj
+/bitfinex.p2p/Client1Service/obj
+/bitfinex.p2p/Client1Service/bin/Debug/net6.0
+/bitfinex.p2p/Client2Service/obj
+/bitfinex.p2p/Client2Service/bin/Debug/net6.0
+/bitfinex.p2p/Client3/obj
+/bitfinex.p2p/Client3Server/bin/Debug/net6.0
+/bitfinex.p2p/Client3Server/obj
+/bitfinex.p2p/Clients.Core/bin/Debug/net6.0
+/bitfinex.p2p/Clients.Core/obj
+/bitfinex.p2p/Client2/bin/Debug/net6.0
+/bitfinex.p2p/Client2/obj

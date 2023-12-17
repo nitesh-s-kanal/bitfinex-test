@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option csharp_namespace = "BitFineX.Auction";
+
+package auction;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+service AuctionStateService {
+  rpc AuctionService (AuctionServiceRequest) returns (AuctionServiceResponse);
+  //rpc AuctionBid (AuctionBidRequest) returns (AuctionBidResponse);
+  //rpc CompleteAuction (CompleteAuctionRequest) returns (CompleteAuctionResponse);
+}
+
+message AuctionServiceRequest {
+  string client_id = 1;
+  string client_name = 2;
+  google.protobuf.Timestamp request_created_date = 3;
+  oneof auction_transaction_type {
+	  CreateAuction create_auction = 100;
+	  AuctionBidsRequest auction_bids_request = 101;
+	  CompleteAuction complete_auction = 102;
+  }
+}
+
+message CreateAuction {
+  string picture_id = 1;
+  string picture_name = 2;
+  double picture_price = 3;
+}
+
+message AuctionBidsRequest {
+	string bid_client_id = 1;
+	string bid_picture_id = 2;
+	double bid_picture_price = 3;
+	bool is_counter_offer = 4;
+}
+
+message CompleteAuction {
+	string client_id = 1;
+	string picture_id = 2;
+	bool accepted = 3;
+}
+
+message AuctionServiceResponse {
+	string client_id = 1;
+	bool completed = 2;
+}

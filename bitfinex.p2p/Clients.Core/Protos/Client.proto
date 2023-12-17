@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option csharp_namespace = "BitFineX.Client";
+
+package client;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+service ClientStateService {
+  rpc AuctionsCreated (AuctionsCreatedRequest) returns (AuctionsCreatedResponse);
+  rpc ReceiveBids (ReceiveBidsRequest) returns (ReceiveBidsResponse);
+  rpc PlaceBids (PlaceBidsRequest) returns (PlaceBidsResponse);
+  rpc CompleteAuction (CompleteAuctionRequest) returns (CompleteAuctionResponse);
+}
+
+message ReceiveBidsRequest {
+  string client_id = 1;
+  string client_name = 2;
+  string picture_id = 3;
+  string picture_name = 4;
+  double picture_price = 5;
+  google.protobuf.Timestamp bidding_time = 6;
+}
+
+message AuctionsCreatedRequest {
+  string client_id = 1;
+  string client_name = 2;
+  string picture_id = 3;
+  string picture_name = 4;
+  double picture_price = 5;
+  google.protobuf.Timestamp auction_created_time = 6;
+}
+
+message AuctionsCreatedResponse{}
+
+/*message CreateAuction {
+  string picture_id = 1;
+  string picture_name = 2;
+  double picture_price = 3;
+}*/
+
+message PlaceBidsRequest {
+	string bid_client_id = 1;
+	string bid_picture_id = 2;
+	double bid_picture_price = 3;
+}
+
+message CompleteAuctionRequest {
+	string client_id = 1;
+	string picture_id = 2;
+	double accepted_price = 3;
+	bool accepted = 4;
+}
+
+message ReceiveBidsResponse {
+	string client_id = 1;
+	bool completed = 2;
+}
+
+message PlaceBidsResponse {
+	bool is_success = 1;
+}
+
+message CompleteAuctionResponse {
+	bool is_success = 1;
+}
