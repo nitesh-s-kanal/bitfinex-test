@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clients.Core
+namespace Clients.Core.Common
 {
     public interface IClientToServer
     {

@@ -1,4 +1,5 @@
 using Clients.Core;
+using Clients.Core.Common;
 
 namespace Client2
 {

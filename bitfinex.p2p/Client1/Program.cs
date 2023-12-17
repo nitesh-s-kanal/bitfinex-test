@@ -1,5 +1,5 @@
 using Client1;
-using Clients.Core;
+using Clients.Core.Common;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 

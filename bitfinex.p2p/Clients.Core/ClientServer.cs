@@ -24,6 +24,28 @@ namespace Clients.Core
         {
             if(request.AuctionTransactionTypeCase == AuctionServiceRequest.AuctionTransactionTypeOneofCase.CreateAuction)
             {
+                ClientAuctions clientAuct = new ()
+                {
+                    PictureId = request.CreateAuction.PictureId,
+                    PictureName = request.CreateAuction.PictureName,
+                    PicturePrice = request.CreateAuction.PicturePrice
+                };
+
+                if (clientAuctions.ContainsKey(request.ClientId))
+                {
+                    clientAuctions[request.ClientId].Add(clientAuct);
+                }
+                else
+                {
+                    List<ClientAuctions> cAuctions = new()
+                    {
+                        clientAuct
+                    };
+
+                    clientAuctions.Add(request.ClientId, cAuctions);
+                }
+
+
                 Console.WriteLine($"Auction has been created by {request.ClientName} for {request.CreateAuction.PictureName} for a price of {request.CreateAuction.PicturePrice} $");
                 Console.WriteLine("Do you want to Bid? Yes/No");
                 string bid = Console.ReadLine();

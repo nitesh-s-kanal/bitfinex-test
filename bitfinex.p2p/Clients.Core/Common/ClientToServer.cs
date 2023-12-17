@@ -3,13 +3,13 @@ using BitFineX.Client;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Net.Client;
 
-namespace Clients.Core
+namespace Clients.Core.Common
 {
     public class ClientToServer : IClientToServer
     {
         public AuctionStateService.AuctionStateServiceClient _clientService;
 
-        private readonly List<Client> clients = new ();
+        private readonly List<Client> clients = new();
 
         public ClientToServer()
         {

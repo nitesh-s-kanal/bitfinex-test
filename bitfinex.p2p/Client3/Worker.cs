@@ -1,4 +1,5 @@
 using Clients.Core;
+using Clients.Core.Common;
 
 namespace Client3
 {
@@ -8,7 +9,7 @@ namespace Client3
         private readonly IClientToServer _server;
         private readonly string clientId = "345";
         private readonly string clientName = "Client 3";
-        public Worker(ILogger<Worker> logger)
+        public Worker(ILogger<Worker> logger, IClientToServer clientToServer)
         {
             _logger = logger;
             _server = clientToServer;
